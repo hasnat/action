@@ -267,7 +267,7 @@ export default {
                 .coerceTo('array')
                 .map((teamMember) => ({
                   id: teamMember('id'),
-                  present: r.branch(teamMember('isCheckedIn').eq(true), true, false)
+                  present: teamMember('isCheckedIn').default(false)
                 })),
               projects: res('meetingUpdates')('projects').default([]),
 
